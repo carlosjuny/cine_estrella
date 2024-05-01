@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Inicio</title>
+    <script src="/js/inicio.js"></script>
+    <link rel="stylesheet" href="./src/inicio.css">
+    <link rel="icon" href="./image/logoc_estrella.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!--===============================================header===============================================-->
+    <header class="header">
+
+        <div class="navb">
+            <!--===============================================Logo===============================================-->
+            <div id="logo">
+                <img src="./image/logo_cine_estrella.png" />
+                <span id="title">
+                    <strong>Cine</strong>Estrela
+                </span>
+            </div>
+            <!--===============================================Menú===============================================-->
+            <nav class="menu">
+                <ul>
+                    <li class="list active"><a href="#" onclick="moveIndicator(0)">
+                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                            <span class="text">Inicio</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(1)">
+                            <span class="icon"><ion-icon name="calendar-number-outline"></ion-icon></span>
+                            <span class="text">Premiere</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(2)">
+                            <span class="icon"><ion-icon name="videocam-outline"></ion-icon></span>
+                            <span class="text">Movies</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(3)">
+                            <span class="icon"><ion-icon name="card-outline"></ion-icon></span>
+                            <span class="text">Promotions</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(4)">
+                            <span class="icon"><ion-icon name="phone-portrait-outline"></ion-icon></span>
+                            <span class="text">Contact</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(5)">
+                            <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+                            <span class="text">Access</span></a></li>
+                    <div class="indicador" id="miIndicador"></div>
+                </ul>
+            </nav>
+        </div>
+        <div class="barra">
+            <img src="/image/cintacine.png" alt="cintacine">
+            <h2>Web</h2>
+            <li><a href="#"></a></li>
+        </div>
+        <div class="section2">
+            <div>
+                <h1>Inicio</h1>
+            </div>
+            <nav class="menu_cine">
+                <ul>
+                    <li><a href="#" class="inicio">Inicio</a></li>
+                    <li><a href="#" class="billboard">billboard</a></li>
+                    <li><a href="#" class="your_favorities">Your favorities</a></li>
+                </ul>
+            </nav>
+            <div>
+                <input type="search" placeholder="search"/>
+                <ion-icon name="search-circle-outline" class="search"></ion-icon>
+        </div>
+        </div>
+
+    </header>
+
+    <!--===============================================Main===============================================-->
+    <main class="main">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/image/banner/THOR-banner.jpg" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="/image/banner/peliculas_banner.jpg" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/image/banner/Blue-Beetle.png" alt="Slide 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="/image/banner/avatar_banner.jpg" alt="Slide 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="/image/banner/hobbit_banner.jpg" alt="Slide 5">
+                </div>
+            </div>
+            <a class="carousel-control prev" href="#" id="prevBtn"><ion-icon name="caret-back-outline"></ion-icon></a>
+            <a class="carousel-control next" href="#" id="nextBtn"><ion-icon name="caret-forward-outline"></ion-icon></a>
+        </div>
+        <div class="flex">
+            <ol class="flex-nav flex-paging">
+                <li><a href="#" class="flex_active" data-index="0">•</a></li>
+                <li><a href="#">•</a></li>
+                <li><a href="#">•</a></li>
+                <li><a href="#">•</a></li>
+                <li><a href="#">•</a></li>
+            </ol>
+        </div>
+        <div id="portada">
+            <div class="pelicula">
+                <img src="/image/portadas/portada_hollywood.jpg" alt="Título de la película 1">
+                <p>The villaines</p>
+            </div>
+            <div class="pelicula">
+                <img src="/image/portadas/portada_blad_runner.png" alt="Título de la película 2">
+                <p>Blade runner</p>
+            </div>
+            <div class="pelicula">
+                <img src="/image/portadas/portada_walle.jpg" alt="Título de la película 3">
+                <p>Walle</p>
+            </div>
+            <div class="pelicula">
+                <img src="/image/portadas/portada_jhon_wick.jpg" alt="Título de la película 4   ">
+                <p>Jhon wick</p>
+            </div>
+            <div class="pelicula">
+                <img src="/image/portadas/portada-antman-avispa.jpg" alt="Título de la película 5   ">
+                <p>Antman avispa</p>
+            </div>
+            <div class="pelicula">
+                <img src="/image/portadas/portada_joker.jpg" alt="Título de la película 6   ">
+                <p>Joker</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!--===============================================Footer===============================================-->
+    <footer class="footer">
+        <div>
+            <p>
+                &copy; Cine Palacio
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
