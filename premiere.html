@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Premiere</title>
+    <script src="/js/premiere.js"></script>
+    <link rel="stylesheet" href="./src/premiere.css">
+    <link rel="icon" href="./image/estrella_original4.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!--===============================================header===============================================-->
+    <header class="header">
+
+        <div class="navb">
+            <div class="background"></div>
+            <!--===============================================Logo===============================================-->
+            <div id="logo">
+                <img src="./image/cine_estrella_original2.png" class="rotate-vertical-center"/>
+                <span id="title">
+                    <strong>Cine</strong>Estrella
+                </span>
+            </div>
+            <!--===============================================Menú===============================================-->
+            <nav class="menu">
+                <ul>
+                    <li class="list active"><a href="./index.html" onclick="moveIndicator(0)">
+                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                            <span class="text">Inicio</span></a></li>
+                    <li class="list"><a href="./premiere.html" onclick="moveIndicator(1)">
+                            <span class="icon"><ion-icon name="calendar-number-outline"></ion-icon></span>
+                            <span class="text">Premiere</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(2)">
+                            <span class="icon"><ion-icon name="videocam-outline"></ion-icon></span>
+                            <span class="text">Movies</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(3)">
+                            <span class="icon"><ion-icon name="card-outline"></ion-icon></span>
+                            <span class="text">Promotions</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(4)">
+                            <span class="icon"><ion-icon name="phone-portrait-outline"></ion-icon></span>
+                            <span class="text">Contact</span></a></li>
+                    <li class="list"><a href="#" onclick="moveIndicator(5)">
+                            <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+                            <span class="text">Access</span></a></li>
+                    <div class="indicador" id="miIndicador"></div>
+                </ul>
+            </nav>
+        </div>
+        <div class="barra">
+            <!-- <img src="/image/cintacine.png" alt="cintacine"> -->
+            <!-- <img src="/image/banner/claqueta.jpg" alt="cintanegra" class="img">
+            <img src="/image/banner/palomitas.jpg" alt="" class="img1">
+            <img src="/image/banner/icono_entrada.jpg" alt="" class="img2"> -->
+            <img src="" alt="">
+            <h2>Web</h2>
+            <li><a href="#"></a></li>
+        </div>
+        <div class="section2">
+            <div>
+                <h1>Premiere</h1>
+            </div>
+            <!-- <nav class="menu_cine">
+                <ul>
+                    <li><a href="#inicio" class="inicio">Inicio</a></li>
+                    <li><a href="#billboad" class="billboard">billboard</a></li>
+                    <li><a href="#your-favorities" class="your_favorities">Your favorities</a></li>
+                </ul>
+            </nav> -->
+            <div class="search1">
+                <input type="search" placeholder="search" class="hidden" id="searchInput"/>
+                <ion-icon name="search-circle-outline" class="search"id="searchIcon"><label for="searchInput">Search</label></ion-icon>
+        </div>
+        </div>
+
+    </header>
+
+    <!--===============================================Main===============================================-->
+    <main class="main">
+        <div class="calendar">
+            <div class="calendar_controls">
+                <select id="select_month">
+                    <option value="0">Enero</option>
+                    <option value="1">Febrero</option>
+                    <option value="2">Marzo</option>
+                    <option value="3">Abril</option>
+                    <option value="4">Mayo</option>
+                    <option value="5">Junio</option>
+                    <option value="6">Julio</option>
+                    <option value="7">Agosto</option>
+                    <option value="8">Septiembre</option>
+                    <option value="9">Octubre</option>
+                    <option value="10">Noviembre</option>
+                    <option value="11">Diciembre</option>
+                </select>
+                <select id="select_year">
+                </select>
+            </div>
+            <div class="calendar_header">
+                <span id="month_year">Mayo 2024</span>
+            </div>
+            <table class="calendar_table" id="calendar_table">
+                <thead>
+                    <tr>
+                        <th>Domingo</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                        <th>Sábado</th>
+                    </tr>
+                </thead>
+                <tbody id="calendar_body">
+                    <!-- Aquí se generará el contenido del calendario -->
+                </tbody>
+            </table>
+        </div>
+        <div class="texts">
+            <h2>Explora los estrenos cinematográficos en nuestro calendario</h2>
+            <ul>
+                <li>En nuestro calendario, encontrarás las fechas de estreno de las películas más recientes y hasta cuándo durarán en
+                    nuestras carteleras. Ya sea que busques emocionantes blockbusters o cautivadoras películas independientes, aquí
+                    podrás planificar tu próximo viaje al cine con facilidad</li>
+            </ul>
+        </div>
+        <div class="category">
+            <h1>Categoría de Películas</h1>
+            <select id="categoriaSelect">
+                <option value="0">Aventura</option>
+                <option value="1">Acción</option>
+                <option value="2">Comedia</option>
+                <option value="3">Drama</option>
+                <option value="4">Terror</option>
+            </select>
+        </div>
+        <div id="portada">
+            <section class="cartelera">
+                <h2>Cartelera</h2>
+            <div class="pelicula">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula1')" onmouseout="ocultarInfoPelicula('infoPelicula1')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_hollywood.jpg" alt="Título de la película 1">
+                <div class="pelicula_info" id="infoPelicula1">
+                <p>Hollywood</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span> 
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>       
+            <div class="pelicula">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula2')" onmouseout="ocultarInfoPelicula('infoPelicula2')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_blad_runner.png" alt="Título de la película 2">
+                <div class="pelicula_info" id="infoPelicula2">
+                <p>Blade runner</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>  
+            <div class="pelicula">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula3')" onmouseout="ocultarInfoPelicula('infoPelicula3')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_walle.jpg" alt="Título de la película 2">
+                <div class="pelicula_info" id="infoPelicula3">
+                <p>Walle</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a> 
+            <div class="pelicula">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula4')" onmouseout="ocultarInfoPelicula('infoPelicula4')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_jhon_wick.jpg" alt="Título de la película 2">
+                <div class="pelicula_info" id="infoPelicula4">
+                <p>Jhon wick 3</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a> 
+            <div class="pelicula">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula5')" onmouseout="ocultarInfoPelicula('infoPelicula5')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada-antman-avispa.jpg" alt="Título de la película 2">
+                <div class="pelicula_info" id="infoPelicula5">
+                <p>Antman avispa </p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a> 
+            <div class="pelicula">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula6')" onmouseout="ocultarInfoPelicula('infoPelicula6')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_joker.jpg" alt="Título de la película 2">
+                <div class="pelicula_info" id="infoPelicula6">
+                <p>Joker</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a> 
+            <div class="pelicula">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula7')" onmouseout="ocultarInfoPelicula('infoPelicula7')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_busqueda_impacable.jpg" alt="Título de la película 2">
+                <div class="pelicula_info" id="infoPelicula7">
+                <p>Busqueda implacable</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a> 
+            <div class="pelicula">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula8')" onmouseout="ocultarInfoPelicula('infoPelicula8')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_kun_fu_panda.jpg" alt="Título de la película 2">
+                <div class="pelicula_info" id="infoPelicula8">
+                <p>Kun fu panda</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a> 
+            </section>
+        </div>
+        <div id="portada1">
+            <section class="cartelera">
+                <h2>Cartelera</h2>
+            <div class="pelicula1">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula9')" onmouseout="ocultarInfoPelicula('infoPelicula9')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_spider_verse.jpg" alt="Título de la película 9">
+                <div class="pelicula_info" id="infoPelicula9">
+                <p>Spider verse</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>
+            <div class="pelicula1">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula10')" onmouseout="ocultarInfoPelicula('infoPelicula10')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_soni.jpg" alt="Título de la película 10">
+                <div class="pelicula_info" id="infoPelicula10">
+                <p>Soni</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>
+            <div class="pelicula1">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula11')" onmouseout="ocultarInfoPelicula('infoPelicula11')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_xmen_future.jpg" alt="Título de la película 11">
+                <div class="pelicula_info" id="infoPelicula11">
+                <p>Xmen future</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>
+            <div class="pelicula1">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula12')" onmouseout="ocultarInfoPelicula('infoPelicula12')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_avengers.jpg" alt="Título de la película 12">
+                <div class="pelicula_info" id="infoPelicula12">
+                <p>Soni</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>
+            <div class="pelicula1">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula13')" onmouseout="ocultarInfoPelicula('infoPelicula13')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_protector.jpg" alt="Título de la película 13">
+                <div class="pelicula_info" id="infoPelicula13">
+                <p>Beekeeper</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>
+            <div class="pelicula1">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula14')" onmouseout="ocultarInfoPelicula('infoPelicula14')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_arthur-jpg.jpg" alt="Título de la película 14">
+                <div class="pelicula_info" id="infoPelicula14">
+                <p>Arthur</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>
+            <div class="pelicula1">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula15')" onmouseout="ocultarInfoPelicula('infoPelicula15')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_furiosa.jpg" alt="Título de la película 15">
+                <div class="pelicula_info" id="infoPelicula15">
+                <p>Soni</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>
+            <div class="pelicula1">
+                <div class="iconos">
+                    <ion-icon name="play-circle-outline"></ion-icon>
+                </div>   
+                <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula16')" onmouseout="ocultarInfoPelicula('infoPelicula16')">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                </div>
+                <img src="/image/portadas/portada_jhon_wick4.jpg" alt="Título de la película 16">
+                <div class="pelicula_info" id="infoPelicula16">
+                <p>Jhon wick 4</p>
+                <p>Sinopsis breve...</p>
+                <p>Horarios:</p>
+                <ul>
+                    <li>Lunes a viernes: 17:00, 19:30, 22:00</li>
+                    <li>Sábado y domingo: 15:00, 18:00, 20:30</li>
+                </ul>
+                </div>
+                <div class="calificacion">
+                <p>Calificación:</p>
+                <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>         
+            </div>
+            <a href="#" class="p">Comprar entradas</a>
+            </section>
+        </div>
+        <!-- <section class="noticias">
+            <h2>Últimas noticias</h2>
+            <article>
+                <h3>Estreno de la nueva película de...</h3>
+                <p>Descripción de la noticia...</p>
+                <a href="#" class="p">Leer más</a>
+            </article>
+        </section>
+        <section class="comentarios">
+            <h2>Comentarios y reseñas</h2>
+            <div class="comentario">
+                <p>Usuario123: "¡Excelente película! Recomiendo verla en pantalla grande."</p>
+            </div>
+        </section> -->
+        
+    </main>
+
+    <!--===============================================Footer===============================================-->
+    <footer class="footer">
+        <section class="redes_sociales">
+            <h2>Síguenos en redes sociales</h2>
+            <ul>
+                <li><a href="https://facebook.com/cineestrella" target="_blank"><ion-icon name="logo-facebook" class="icons"></ion-icon><label>facebook</label></a></li>
+                <li><a href="https://twitter.com/cineestrella" target="_blank"><ion-icon name="logo-twitter" class="icons"></ion-icon><label>twitter</label></a></li>
+                <li><a href="https://instagram.com/cineestrella" target="_blank"><ion-icon name="logo-instagram" class="icons"></ion-icon><label>instagram</label></a></li>
+                <!-- Agrega más iconos y enlaces según las redes sociales que utilices -->
+            </ul>
+        </section>
+        
+        <div>
+            <p>
+                &copy; Cine Estrella &#9733;
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

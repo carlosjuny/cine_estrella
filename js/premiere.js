@@ -295,3 +295,229 @@ function moveIndicator(index) {
     saveActiveIndex(index);
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtiene la fecha actual
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = currentDate.getMonth();
+
+    // Actualiza el año actual en el select
+    var selectYear = document.getElementById("select_year");
+    for (var i = currentYear; i <= currentYear + 10; i++) {
+        var option = document.createElement("option");
+        option.text = i;
+        option.value = i;
+        selectYear.add(option);
+    }
+
+    // Establece el mes y el año actual en el select
+    var selectMonth = document.getElementById("select_month");
+    selectMonth.selectedIndex = currentMonth;
+
+    // Actualiza el calendario
+    updateCalendar(currentMonth, currentYear);
+});
+
+function updateCalendar(month, year) {
+    // Aquí deberías actualizar el contenido del calendario según el mes y el año proporcionados
+    // Puedes utilizar métodos como innerHTML para actualizar el contenido de la tabla
+    // Puedes generar dinámicamente las filas y celdas del calendario
+    // Ten en cuenta que los meses en JavaScript se indexan desde 0 (enero es 0, febrero es 1, etc.)
+    // Este es solo un ejemplo básico para ilustrar el concepto
+
+    var monthYearElement = document.getElementById("month_year");
+    monthYearElement.textContent = obtenerNombreMes(month) + " " + year;
+
+    // Aquí puedes actualizar el contenido de la tabla según el mes y el año
+    // Por ejemplo, puedes calcular los días y rellenar la tabla correspondientemente
+    // Recuerda borrar el contenido anterior antes de generar el nuevo contenido
+}
+
+function obtenerNombreMes(month) {
+    var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    return meses[month];
+}
+
+function updateCalendar(month, year) {
+    var daysInMonth = new Date(year, month + 1, 0).getDate(); // Obtiene el número de días en el mes
+    var firstDayOfMonth = new Date(year, month, 1).getDay(); // Obtiene el día de la semana del primer día del mes
+    var calendarBody = document.getElementById("calendar_body");
+    calendarBody.innerHTML = ""; // Borra el contenido anterior del cuerpo del calendario
+
+    var currentDate = 1;
+    for (var i = 0; i < 6; i++) { // Genera 6 filas para el calendario (semanas)
+        var row = document.createElement("tr");
+        for (var j = 0; j < 7; j++) { // Genera las celdas de cada fila (días de la semana)
+            var cell = document.createElement("td");
+            if (i === 0 && j < firstDayOfMonth) { // Rellena las celdas vacías al inicio del mes
+                cell.textContent = "";
+            } else if (currentDate > daysInMonth) { // Rellena las celdas vacías al final del mes
+                cell.textContent = "";
+            } else { // Rellena las celdas con los días del mes
+                cell.textContent = currentDate;
+                currentDate++;
+            }
+            row.appendChild(cell);
+        }
+        calendarBody.appendChild(row);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtiene la fecha actual
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var currentMonth = currentDate.getMonth();
+
+    // Actualiza el año actual en el select
+    var selectYear = document.getElementById("select_year");
+    for (var i = currentYear; i <= currentYear + 10; i++) {
+        var option = document.createElement("option");
+        option.text = i;
+        option.value = i;
+        selectYear.add(option);
+    }
+
+    // Establece el mes y el año actual en el select
+    var selectMonth = document.getElementById("select_month");
+    selectMonth.selectedIndex = currentMonth;
+
+    // Actualiza el calendario
+    updateCalendar(currentMonth, currentYear);
+
+    // Agrega eventos de cambio a los selectores de mes y año
+    selectMonth.addEventListener("change", function() {
+        var selectedMonth = parseInt(selectMonth.value);
+        var selectedYear = parseInt(selectYear.value);
+        updateCalendar(selectedMonth, selectedYear);
+    });
+
+    selectYear.addEventListener("change", function() {
+        var selectedMonth = parseInt(selectMonth.value);
+        var selectedYear = parseInt(selectYear.value);
+        updateCalendar(selectedMonth, selectedYear);
+    });
+});
+
+function updateCalendar(month, year) {
+    var calendarBody = document.getElementById("calendar_body");
+    calendarBody.innerHTML = ""; // Borra el contenido anterior del cuerpo del calendario
+
+    var firstDayOfMonth = new Date(year, month, 1).getDay(); // Obtiene el día de la semana del primer día del mes
+    var daysInMonth = new Date(year, month + 1, 0).getDate(); // Obtiene el número de días en el mes
+    var daysInPrevMonth = new Date(year, month, 0).getDate(); // Obtiene el número de días del mes anterior
+
+    var currentDate = 1 - firstDayOfMonth; // Inicia en el día correspondiente al día de la semana del primer día del mes
+    var today = new Date(); // Obtiene la fecha actual
+    var currentDay = today.getDate();
+    var currentMonth = today.getMonth();
+    var currentYear = today.getFullYear();
+
+    for (var i = 0; i < 6; i++) { // Genera 6 filas para el calendario (semanas)
+        var row = document.createElement("tr");
+        for (var j = 0; j < 7; j++) { // Genera las celdas de cada fila (días de la semana)
+            var cell = document.createElement("td");
+            if (currentDate <= 0) { // Días del mes anterior
+                cell.textContent = daysInPrevMonth + currentDate;
+                cell.classList.add("other-month");
+            } else if (currentDate > daysInMonth) { // Días del mes siguiente
+                cell.textContent = currentDate - daysInMonth;
+                cell.classList.add("other-month");
+            } else { // Días del mes actual
+                cell.textContent = currentDate;
+                // Marca el día actual si corresponde al día en el calendario
+                if (currentDate === currentDay && month === currentMonth && year === currentYear) {
+                    cell.classList.add("current-day");
+                }
+            }
+            row.appendChild(cell);
+            currentDate++;
+        }
+        calendarBody.appendChild(row);
+    }
+
+    // Llama a la función para actualizar el mes y el año en el encabezado
+    updateMonthYear(month, year);
+}
+
+// Función para actualizar el mes y el año en el encabezado
+function updateMonthYear(month, year) {
+    var monthYearElement = document.getElementById("month_year");
+    var monthName = getMonthName(month);
+    monthYearElement.textContent = monthName + " " + year;
+}
+
+// Función auxiliar para obtener el nombre del mes a partir de su número
+function getMonthName(month) {
+    var monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                      "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    return monthNames[month];
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Otros códigos...
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Otro código...
+
+    // Agregar eventos de clic a las celdas del calendario
+    var cells = document.querySelectorAll(".calendar_table td");
+    cells.forEach(function(cell) {
+        cell.addEventListener("click", function() {
+            // Remueve la clase 'selected' de todas las celdas
+            cells.forEach(function(c) {
+                c.classList.remove("selected");
+            });
+
+            // Añade la clase 'selected' a la celda clicada
+            cell.classList.add("selected");
+
+            // Aquí puedes mostrar información relacionada con el día seleccionado
+            var selectedDay = cell.textContent;
+            var selectedMonth = parseInt(selectMonth.value);
+            var selectedYear = parseInt(selectYear.value);
+            console.log("Día seleccionado:", selectedDay);
+            console.log("Mes seleccionado:", selectedMonth);
+            console.log("Año seleccionado:", selectedYear);
+        });
+    });
+});
+
+// Intercepta el evento de clic en los enlaces
+// document.querySelectorAll('ul li.list a').forEach((link, index) => {
+//     link.addEventListener('click', function(event) {
+//         // Previene el comportamiento predeterminado del enlace
+//         event.preventDefault();
+        
+//         // Oculta el indicador
+//         document.getElementById('miIndicador').style.opacity = '0';
+        
+//         // Obtén la URL del enlace
+//         const href = this.getAttribute('href');
+        
+//         // Redirige a la nueva página después de un breve período
+//         setTimeout(() => {
+//             window.location.href = href;
+//         }, 300);
+//     });
+// });
+
+// Muestra el indicador después de que la página se haya cargado completamente
+// window.addEventListener('load', function() {
+//     document.getElementById('miIndicador').style.opacity = '1';
+// });
+
+function mostrarInfoPelicula(id) {
+    var infoPelicula = document.getElementById(id);
+    infoPelicula.style.display = "block"; // Muestra la información de la película
+}
+
+function ocultarInfoPelicula(id) {
+    var infoPelicula = document.getElementById(id);
+    infoPelicula.style.display = "none"; // Oculta la información de la película
+}
+
+

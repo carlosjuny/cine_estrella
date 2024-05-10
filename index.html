@@ -22,9 +22,9 @@
         <div class="navb">
             <!--===============================================Logo===============================================-->
             <div id="logo">
-                <img src="./image/logo_cine_estrella.png" />
+                <img src="./image/logo_cine_estrella.png" class="rotate-vertical-center"/>
                 <span id="title">
-                    <strong>Cine</strong>Estrela
+                    <strong>Cine</strong>Estrella
                 </span>
             </div>
             <!--===============================================Menú===============================================-->
@@ -33,7 +33,7 @@
                     <li class="list active"><a href="#" onclick="moveIndicator(0)">
                             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                             <span class="text">Inicio</span></a></li>
-                    <li class="list"><a href="#" onclick="moveIndicator(1)">
+                    <li class="list"><a href="./premiere.html" onclick="moveIndicator(1)">
                             <span class="icon"><ion-icon name="calendar-number-outline"></ion-icon></span>
                             <span class="text">Premiere</span></a></li>
                     <li class="list"><a href="#" onclick="moveIndicator(2)">
@@ -54,6 +54,10 @@
         </div>
         <div class="barra">
             <img src="/image/cintacine.png" alt="cintacine">
+            <img src="/image/banner/claqueta.jpg" alt="cintanegra" class="img">
+            <img src="/image/banner/palomitas.jpg" alt="" class="img1">
+            <img src="/image/banner/icono_entrada.jpg" alt="" class="img2">
+            <img src="" alt="">
             <h2>Web</h2>
             <li><a href="#"></a></li>
         </div>
@@ -63,14 +67,14 @@
             </div>
             <nav class="menu_cine">
                 <ul>
-                    <li><a href="#" class="inicio">Inicio</a></li>
-                    <li><a href="#" class="billboard">billboard</a></li>
-                    <li><a href="#" class="your_favorities">Your favorities</a></li>
+                    <li><a href="#inicio" class="inicio">Inicio</a></li>
+                    <li><a href="#billboad" class="billboard">billboard</a></li>
+                    <li><a href="#your-favorities" class="your_favorities">Your favorities</a></li>
                 </ul>
             </nav>
             <div>
-                <input type="search" placeholder="search"/>
-                <ion-icon name="search-circle-outline" class="search"></ion-icon>
+                <input type="search" placeholder="search" class="hidden" id="searchInput"/>
+                <ion-icon name="search-circle-outline" class="search"id="searchIcon"><label for="searchInput">Search</label></ion-icon>
         </div>
         </div>
 
@@ -134,7 +138,49 @@
                 <p>Joker</p>
             </div>
         </div>
-
+        <div id="portada1">
+            <div class="pelicula1">
+                <img src="/image/portadas/portada_spider_verse.jpg" alt="Título de la película 1">
+                <p>Spider verse</p>
+            </div>
+            <div class="pelicula1">
+                <img src="/image/portadas/portada_soni.jpg" alt="Título de la película 2">
+                <p>Sonic</p>
+            </div>
+            <div class="pelicula1">
+                <img src="/image/portadas/portada_xmen_future.jpg" alt="Título de la película 3">
+                <p>Xmen days of future past</p>
+            </div>
+            <div class="pelicula1">
+                <img src="/image/portadas/portada_avengers.jpg" alt="Título de la película 4   ">
+                <p>Avngers</p>
+            </div>
+            <div class="pelicula1">
+                <img src="/image/portadas/portada_protector.jpg" alt="Título de la película 5   ">
+                <p>Beekeeper</p>
+            </div>
+            <div class="pelicula1">
+                <img src="/image/portadas/portada_arthur-jpg.jpg" alt="Título de la película 6   ">
+                <p>Arthur</p>
+            </div>
+        </div>
+        <div class="scroll">
+            <ul class="fg" data-tbs="movies">
+                <li class="fg1"><a href="#aa-mov1" class="on">Más favorito</a></li>
+                <div class="flag">
+                    <img src="/image/portadas/portada_avatar2.jpg" alt="">
+                    <img src="/image/portadas/portada_busqueda_impacable.jpg" alt="">
+                    <img src="/image/portadas/portada_kun_fu_panda.jpg" alt="">
+                </div>
+                <li class="fg1"><a href="#aa-mov2" class="">Próximas películas</a></li>
+                <div class="flag2">
+                    <img src="/image/portadas/portada_avatar2.jpg" alt="">
+                    <img src="/image/portadas/portada_busqueda_impacable.jpg" alt="">
+                    <img src="/image/portadas/portada_busqueda_impacable.jpg" alt="">
+                    <img src="/image/portadas/portada_kun_fu_panda.jpg" alt="">
+                </div>
+            </ul>
+        </div>
     </main>
 
     <!--===============================================Footer===============================================-->
