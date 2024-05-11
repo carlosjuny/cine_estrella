@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: var(--color-Quaternary); */
+    /* background: url(/image/banner/cine_4k.jpg) no-repeat; */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: "Yantramanav", sans-serif;
+}
+
+:root {
+    --color-Primary: #efa229;
+    --color-Secondary: #f1ba60;
+    --color-Tertiary: #e6c48f;
+    --color-Quaternary: #000000;
+    --color-Quinary: #413e40;
+    --color-Sextary: #0000003f;
+    --color-Sextenary: #EEEEEE;
+    --color-Notification1: #285291;
+    --color-Notification2: #132847;
+}
+
+/*!--===============================================Header===============================================--*/
+
+
+/*!--===============================================Main===============================================--*/
+
+
+/*!--===============================================Footer===============================================--*/

@@ -12,12 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/fa12d2b5fc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <!--===============================================header===============================================-->
-    <header class="header">
+    <header class="header_contenedor">
 
         <div class="navb">
             <div class="background"></div>
@@ -27,6 +28,13 @@
                 <span id="title">
                     <strong>Cine</strong>Estrella
                 </span>
+            </div>
+            <div id="carritoIcono">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cantidadCarrito">0</span>
+            </div>
+            <div id="detalleCompra" class="detalleCompra">
+                <!-- Aquí se mostrarán los detalles de la compra -->
             </div>
             <!--===============================================Menú===============================================-->
             <nav class="menu">
@@ -45,7 +53,7 @@
                             <span class="text">Promotions</span></a></li>
                     <li class="list"><a href="#" onclick="moveIndicator(4)">
                             <span class="icon"><ion-icon name="phone-portrait-outline"></ion-icon></span>
-                            <span class="text">Contact</span></a></li>
+                            <span class="text">News</span></a></li>
                     <li class="list"><a href="#" onclick="moveIndicator(5)">
                             <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
                             <span class="text">Access</span></a></li>
@@ -55,9 +63,6 @@
         </div>
         <div class="barra">
             <!-- <img src="/image/cintacine.png" alt="cintacine"> -->
-            <!-- <img src="/image/banner/claqueta.jpg" alt="cintanegra" class="img">
-            <img src="/image/banner/palomitas.jpg" alt="" class="img1">
-            <img src="/image/banner/icono_entrada.jpg" alt="" class="img2"> -->
             <img src="" alt="">
             <h2>Web</h2>
             <li><a href="#"></a></li>
@@ -133,20 +138,22 @@
         <div class="category">
             <h1>Categoría de Películas</h1>
             <select id="categoriaSelect">
-                <option value="0">Aventura</option>
-                <option value="1">Acción</option>
-                <option value="2">Comedia</option>
-                <option value="3">Drama</option>
-                <option value="4">Terror</option>
+                <option value="todas">Todas</option>
+                <option value="aventura">Aventura</option>
+                <option value="accion">Acción</option>
+                <option value="comedia">Comedia</option>
+                <option value="drama">Drama</option>
+                <option value="terror">Terror</option>
             </select>
         </div>
         <div id="portada">
             <section class="cartelera">
                 <h2>Cartelera</h2>
-            <div class="pelicula">
-                <div class="iconos">
+            <div class="pelicula"  data-categoria="aventura" onmouseover="activarPelicula(this)" onmouseout="desactivarPelicula(this)">
+                <div class="iconos" onmouseover="mostrarTrailer('Trailer')" onmouseout="ocultarTrailer('Trailer')">
                     <ion-icon name="play-circle-outline"></ion-icon>
-                </div>   
+                </div>
+                <p id="Trailer">Ver Trailer</p> 
                 <div class="iconos1" onmouseover="mostrarInfoPelicula('infoPelicula1')" onmouseout="ocultarInfoPelicula('infoPelicula1')">
                     <ion-icon name="alert-circle-outline"></ion-icon>
                 </div>
@@ -162,15 +169,18 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span> 
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a>       
-            <div class="pelicula">
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>       
+            <div class="pelicula"  data-categoria="accion" onmouseover="activarPelicula(this)" onmouseout="desactivarPelicula(this)">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
                 </div>   
@@ -189,14 +199,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a>  
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>  
             <div class="pelicula">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -216,14 +229,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
-                </div>         
+                    <span class="estrella">&#9733;</span>
+                </div>
+                </div>        
             </div>
-            <a href="#" class="p">Comprar entradas</a> 
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a> 
             <div class="pelicula">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -243,14 +259,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a> 
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a> 
             <div class="pelicula">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -260,7 +279,7 @@
                 </div>
                 <img src="/image/portadas/portada-antman-avispa.jpg" alt="Título de la película 2">
                 <div class="pelicula_info" id="infoPelicula5">
-                <p>Antman avispa </p>
+                <p>Antman avispa</p>
                 <p>Sinopsis breve...</p>
                 <p>Horarios:</p>
                 <ul>
@@ -270,14 +289,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a> 
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a> 
             <div class="pelicula">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -297,14 +319,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a> 
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a> 
             <div class="pelicula">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -324,14 +349,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a> 
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a> 
             <div class="pelicula">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -351,14 +379,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
-                </div>         
+                    <span class="estrella">&#9733;</span>
+                </div>
+                </div>        
             </div>
-            <a href="#" class="p">Comprar entradas</a> 
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a> 
             </section>
         </div>
         <div id="portada1">
@@ -383,14 +414,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a>
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>
             <div class="pelicula1">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -400,7 +434,7 @@
                 </div>
                 <img src="/image/portadas/portada_soni.jpg" alt="Título de la película 10">
                 <div class="pelicula_info" id="infoPelicula10">
-                <p>Soni</p>
+                <p>Sonic</p>
                 <p>Sinopsis breve...</p>
                 <p>Horarios:</p>
                 <ul>
@@ -410,14 +444,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
-                </div>         
+                    <span class="estrella">&#9733;</span>
+                </div>
+                </div>        
             </div>
-            <a href="#" class="p">Comprar entradas</a>
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>
             <div class="pelicula1">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -427,7 +464,7 @@
                 </div>
                 <img src="/image/portadas/portada_xmen_future.jpg" alt="Título de la película 11">
                 <div class="pelicula_info" id="infoPelicula11">
-                <p>Xmen future</p>
+                <p>X-Men: Days of Future Past</p>
                 <p>Sinopsis breve...</p>
                 <p>Horarios:</p>
                 <ul>
@@ -437,14 +474,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a>
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>
             <div class="pelicula1">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -454,7 +494,7 @@
                 </div>
                 <img src="/image/portadas/portada_avengers.jpg" alt="Título de la película 12">
                 <div class="pelicula_info" id="infoPelicula12">
-                <p>Soni</p>
+                <p>Avengers</p>
                 <p>Sinopsis breve...</p>
                 <p>Horarios:</p>
                 <ul>
@@ -464,14 +504,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a>
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>
             <div class="pelicula1">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -491,14 +534,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a>
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>
             <div class="pelicula1">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -518,14 +564,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
+                    <span class="estrella">&#9733;</span>
+                </div>
                 </div>         
             </div>
-            <a href="#" class="p">Comprar entradas</a>
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>
             <div class="pelicula1">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -535,7 +584,7 @@
                 </div>
                 <img src="/image/portadas/portada_furiosa.jpg" alt="Título de la película 15">
                 <div class="pelicula_info" id="infoPelicula15">
-                <p>Soni</p>
+                <p>Furiosa</p>
                 <p>Sinopsis breve...</p>
                 <p>Horarios:</p>
                 <ul>
@@ -545,14 +594,17 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
-                </div>         
+                    <span class="estrella">&#9733;</span>
+                </div>
+                </div>        
             </div>
-            <a href="#" class="p">Comprar entradas</a>
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>
             <div class="pelicula1">
                 <div class="iconos">
                     <ion-icon name="play-circle-outline"></ion-icon>
@@ -572,15 +624,97 @@
                 </div>
                 <div class="calificacion">
                 <p>Calificación:</p>
-                <span class="estrella">&#9733;</span>
+                <div class="estrella1">
+                    <span class="border">2</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
                     <span class="estrella">&#9733;</span>
-                </div>         
+                    <span class="estrella">&#9733;</span>
+                </div>
+                </div>        
             </div>
-            <a href="#" class="p">Comprar entradas</a>
+            <a href="javascritp:abrirVentana" class="p" onclick="abrirVentana()">Comprar entradas</a>
             </section>
+        </div>
+        <div id="ventanaCompra" class="ventana">
+            <div class="contenido">
+                <span class="cerrar" onclick="cerrarVentana()">&times;</span>
+                <!-- Contenido de la ventana de compra -->
+                <h3>Compra tus entradas aquí</h3>
+                <form class="formularioCompra">
+                    <h3>información personal</h3>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required><br><br>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                    
+                    <label for="cantidad">Cantidad de entradas:</label>
+                    <input type="number" id="cantidad" name="cantidad" min="1" max="30" required><br><br>
+                    
+                    <label for="pelicula">Película:</label>
+                    <select id="pelis" name="pelicula" required>
+                        <option value="">Selecciona una película</option>
+                        <option value="hollywood">Hollywood</option>
+                        <option value="hollywood">Blade runner</option>
+                        <option value="hollywood">Walle</option>
+                        <option value="hollywood">Jhon wick 3</option>
+                        <option value="hollywood">Antman avispa</option>
+                        <option value="hollywood">Joker</option>
+                        <option value="hollywood">Busqueda implacable</option>
+                        <option value="hollywood">Kun fu panda</option>
+                        <option value="hollywood">Spider verse</option>
+                        <option value="hollywood">Sonic</option>
+                        <option value="hollywood">X-Men: Days of Future Past</option>
+                        <option value="hollywood">Avengers</option>
+                        <option value="hollywood">Beekeeper</option>
+                        <option value="hollywood">Arthur</option>
+                        <option value="hollywood">Furiosa</option>
+                        <option value="hollywood">Jhon wick 4</option>
+                        <!-- Agrega más opciones de películas si es necesario -->
+                    </select><br><br>
+                    
+                    <label for="horario">Horario:</label>
+                    <select id="horario" name="horario" required>
+                        <option value="">Selecciona un horario</option>
+                        <option value="lunes_viernes">Lunes a viernes: 8:00 am a 9:00 pm</option>
+                        <option value="sabado_domingo">Sábado y domingo: 9:00 am a 9:00 pm</option>
+                        <!-- Agrega más opciones de horarios si es necesario -->
+                    </select><br><br>
+                    <div class="tarjeta_dc">
+                    <h4>Selecciona el método de pago:</h4>
+                        <input type="radio" class="tarjeta_credito" name="metodo-pago" value="tarjeta-credito" required>
+                        <label for="tarjeta-credito">Tarjeta de crédito</label><br>
+                        <input type="radio" class="tarjeta_debito" name="metodo-pago" value="tarjeta-debito" required>
+                        <label for="tarjeta-debito">Tarjeta de débito</label><br><br>
+                    </div>
+                        
+                    <!-- Campos para la información de la tarjeta -->
+                    <div class="campos_tarjeta">
+                        <label for="numero-tarjeta">Número de tarjeta:</label>
+                        <input type="text" id="numero-tarjeta" name="numero-tarjeta" required><br><br>
+                        
+                        <label for="nombre-tarjeta">Nombre de la tarjeta:</label>
+                        <input type="text" id="nombre-tarjeta" name="nombre-tarjeta" required><br><br>
+                        
+                        <label for="fecha-expiracion">Fecha de expiración:</label>
+                        <input type="text" id="fecha-expiracion" name="fecha-expiracion" placeholder="MM/YY" required><br><br>
+                        
+                        <label for="codigo-seguridad">Código de seguridad:</label>
+                        <input type="text" id="codigo-seguridad" name="codigo-seguridad" required><br><br>
+                    </div>
+                    
+                    <input type="submit" id="botonComprar" value="Comprar" class="buttom_comprar">
+                </form>
+            </div>
+        </div>
+        <div class="video">
+            <video src="/src/video/Denzel amenaza con calma a un jefe de la mafia rusa.mp4" controls width="400"></video>
+            <img src="/image/banner/densel.banner.jpg">
+            <p>"El justiciero" es un thriller de acción protagonizado por Denzel Washington como Robert McCall, un exagente secreto
+                que busca redimir su pasado ayudando a víctimas indefensas, enfrentándose a la injusticia con habilidades letales y
+                una moral inquebrantable.</p>
         </div>
         <!-- <section class="noticias">
             <h2>Últimas noticias</h2>

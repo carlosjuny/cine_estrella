@@ -520,4 +520,144 @@ function ocultarInfoPelicula(id) {
     infoPelicula.style.display = "none"; // Oculta la información de la película
 }
 
+function mostrarTrailer(id) {
+    var Trailer = document.getElementById(id);
+    Trailer.style.display = "block"; // Muestra la información del trailer
+}
 
+function ocultarTrailer(id) {
+    var Trailer = document.getElementById(id);
+    Trailer.style.display = "none"; // Oculta la información del trailer
+}
+
+function activarPelicula(elemento) {
+    elemento.style.transform = "scale(1.1)";
+    elemento.style.transition = "transform 300ms ease";
+}
+
+function desactivarPelicula(elemento) {
+    elemento.style.transform = "scale(1)";
+}
+
+
+
+function abrirVentana(pelicula) {
+    document.getElementById('ventanaCompra').style.display = 'block';
+    // Establecer el nombre de la película en el campo correspondiente del formulario
+    document.getElementById('pelis').value = pelicula;
+}
+
+function cerrarVentana() {
+    document.getElementById('ventanaCompra').style.display = 'none';
+}
+
+// Obtener todos los elementos <a> con la clase 'comprar-entradas'
+var enlacesCompra = document.querySelectorAll('.comprar-entradas');
+
+// Agregar evento de clic a cada enlace de compra
+enlacesCompra.forEach(function(enlace) {
+    enlace.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+        var pelicula = this.getAttribute('data-pelicula'); // Obtener el nombre de la película
+        abrirVentana(pelicula); // Abrir la ventana emergente con el nombre de la película
+    });
+});
+
+// Mostrar campos de tarjeta de crédito o débito según el método de pago seleccionado
+var radiosMetodoPago = document.querySelectorAll('input[name="metodo-pago"]');
+radiosMetodoPago.forEach(function(radio) {
+    radio.addEventListener('change', function() {
+        var camposTarjeta = document.getElementById('campos-tarjeta');
+        if (this.value === 'tarjeta-credito' || this.value === 'tarjeta-debito') {
+            camposTarjeta.style.display = 'block';
+        } else {
+            camposTarjeta.style.display = 'none';
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var form = document.querySelector('.formularioCompra');
+    var botonComprar = document.getElementById('botonComprar');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Evita que el formulario se envíe
+
+        // Capturar la cantidad de entradas
+        var cantidad = parseInt(document.getElementById('cantidad').value);
+
+        // Obtener la cantidad actual en el carrito
+        var cantidadCarrito = parseInt(document.getElementById('cantidadCarrito').textContent);
+
+        // Sumar la cantidad comprada a la cantidad actual en el carrito
+        cantidadCarrito += cantidad;
+
+        // Actualizar el contenido del span con la nueva cantidad
+        document.getElementById('cantidadCarrito').textContent = cantidadCarrito;
+
+        // Mostrar la notificación de que se han agregado elementos al carrito
+        mostrarNotificacion();
+
+        // Limpiar el formulario
+        form.reset();
+
+        // Cerrar la ventana emergente
+        cerrarVentana();
+    });
+
+    // Función para mostrar la notificación emergente
+    function mostrarNotificacion() {
+        var notificacion = document.getElementById('notificacion');
+        notificacion.style.display = 'block';
+
+        // Ocultar la notificación después de 2 segundos
+        setTimeout(function() {
+            notificacion.style.display = 'none';
+        }, 2000);
+    }
+
+    // Función para cerrar la ventana emergente
+    function cerrarVentana() {
+        document.getElementById('ventanaCompra').style.display = 'none';
+    }
+
+    // Cerrar la ventana emergente al hacer clic en el botón "Comprar" dentro de la ventana emergente
+    botonComprar.addEventListener('click', function() {
+        cerrarVentana();
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var form = document.querySelector('.formularioCompra');
+    var botonComprar = document.getElementById('botonComprar');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Evita que el formulario se envíe
+
+        // Aquí puedes agregar tu lógica para procesar la compra
+        
+        // Limpiar el formulario
+        form.reset();
+
+        // Cerrar la ventana emergente
+        cerrarVentana();
+    });
+
+    // Función para cerrar la ventana emergente
+    function cerrarVentana() {
+        document.getElementById('ventanaCompra').style.display = 'none';
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    var movingText = document.querySelector(".moving-text");
+    var text = movingText.textContent;
+    movingText.textContent = "";
+
+    for (var i = 0; i < text.length; i++) {
+        var span = document.createElement("span");
+        span.textContent = text[i];
+        span.className = "zoom-letter";
+        movingText.appendChild(span);
+    }
+});

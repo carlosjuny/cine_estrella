@@ -8,12 +8,15 @@
     outline: none;
 }
 
+html body {
+    width: 100%;
+}
+
 
 body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     /* background-color: var(--color-Quaternary); */
     /* background: url(/image/banner/cine_4k.jpg) no-repeat; */
     background-attachment: fixed;
@@ -24,14 +27,14 @@ body{
 
 :root {
     --color-Primary: #efa229;
-    --color-Secondary: #009929;
-    --color-Tertiary: #5ccb5f;
+    --color-Secondary: #f1ba60;
+    --color-Tertiary: #e6c48f;
     --color-Quaternary: #000000;
     --color-Quinary: #413e40;
     --color-Sextary: #0000003f;
     --color-Sextenary: #EEEEEE;
-    --color-Notification: #efa229;
-    --color-Notification: #efa229;
+    --color-Notification1: #285291;
+    --color-Notification2: #132847;
   }
 
 /*!--===============================================Header===============================================--*/
@@ -67,7 +70,7 @@ h2{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 106%;
     background-image: url('/image/banner/cine_4k.jpg'); /* Ruta de tu imagen */
     background-size: cover;
     filter: blur(5px); /* Aplica un desenfoque a la imagen de fondo */
@@ -102,7 +105,7 @@ h2{
 #title{
     position: absolute;
     font-size: 1.8rem;
-    margin-left: 68.8rem;
+    margin-left: 68.5rem;
     color: var(--color-Sextenary);
 }
 
@@ -289,7 +292,7 @@ h2{
 }
 
 .calendar_header span {
-    background-color: var(--color-Notification);
+    background-color: var(--color-Primary);
     font-size: 1rem;
     color: var(--color-Quaternary);
     width: 16rem;
@@ -467,6 +470,7 @@ h2{
     color: transparent;
 }
 
+
 h1{
     margin-left: -4rem;
     font-size: 1.5rem;
@@ -597,6 +601,126 @@ input[type="search"] {
     margin-left: 60rem;
 }
 
+.video p{
+    text-align: center;
+    position: absolute;
+    width: 80rem;
+    height: 3rem;
+    margin-top: 83.2rem;
+    margin-left: -11.6rem;
+    border-radius: 0.2rem;
+    background-color: var(--color-Sextary);
+}
+
+video{
+    position: absolute;
+    width: 40rem;
+    height: 25rem;
+    margin-left: -12rem;
+    margin-top: 58rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-Quaternary);
+    background-color: var(--color-Quaternary);
+}
+
+.video img{
+    position: absolute;
+    width: 40rem;
+    height: 25rem;
+    margin-top: 58rem;
+    margin-left: 28.5rem;
+    box-shadow: 0 0 5px 5px var(--color-Quinary);
+    background-image: url('/image/banner/densel.banner.jpg'); /* Ruta de tu imagen */
+    background-size: cover;
+    filter: blur(0.7px); /* Aplica un desenfoque a la imagen de fondo */
+    z-index: -1;
+}
+
+/* Estilos básicos para la ventana emergente */
+.ventana {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.contenido {
+    margin: 15% auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 0.5rem;
+    border: 4px solid #888;
+    background-color: var(--color-Sextenary);
+}
+
+.contenido h3{
+    margin-left: 18rem;
+}
+
+.formularioCompra{
+    margin-left: 4rem;
+    margin-top: 2rem;
+}
+
+.formularioCompra h3{
+    margin-top: -0.5rem;
+    margin-left: -1rem;
+}
+
+.formularioCompra input{
+    margin-top: 0.5rem;
+}
+
+
+#pelis{
+    width: 11rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px 1px var(--color-Quinary);
+}
+
+#horario{
+    width: 11rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px 1px var(--color-Quinary);
+}
+
+.tarjeta_dc{
+    margin-top: -17rem;
+    margin-left: 26rem;
+}
+
+.campos_tarjeta{
+    margin-left: 26rem;
+}
+
+.buttom_comprar{
+    align-items: center;
+    width: 5rem;
+    margin-left: 18.5rem;
+    cursor: pointer;
+}
+
+.cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 /*!--===============================================Footer===============================================--*/
 
@@ -604,17 +728,17 @@ input[type="search"] {
     position: absolute;
     min-width: 220vh;
     min-height: 10vw;
-    margin-top: 200rem;
+    margin-top: 250rem;
     border-radius: 1rem;
     backdrop-filter: blur(10px);
     border: 1px solid var(--color-Primary);
-    /* background-color: #868585; */
+    background-color: var(--color-Primary);
 }
 
 .footer p{
     align-items: center;
     font-size: 1.2rem;
-    margin-left: 38rem;
+    margin-left: 42.5rem;
     color: #313131;
 }
 
@@ -642,6 +766,10 @@ input[type="search"] {
     color: var(--color-Quaternary);
 }
 
+.redes_sociales a:hover{
+    color: var(--color-Notification1);
+}
+
 .redes_sociales li{
     display: inline-block;
     margin-top: 3.5rem;
@@ -655,7 +783,7 @@ input[type="search"] {
     position: absolute;
     display: flex;
     justify-content: space-around;
-    left: -0.5rem;
+    left: -0.9rem;
     top: 48rem;
 }
 
@@ -681,9 +809,9 @@ input[type="search"] {
     display: inline-block;
     justify-content: space-between;
     position: relative;
-    width: 118px;
+    width: 117.5px;
     margin-top: 5rem;
-    margin-left: 2.1rem;
+    margin-left: 1.5rem;
     /* margin: 2rem; */
     text-align: center;
 }
@@ -757,9 +885,25 @@ input[type="search"] {
     position: absolute;
     display: none;
     text-align: center;
-    width: 11rem;
+    width: 10rem;
     margin-top: -8rem;
+    backdrop-filter: blur(5px);
+    color: var(--color-Sextenary); 
+}
+
+.pelicula_info li{
+    color: var(--color-Sextenary);
+}
+
+#Trailer{
+    display: flex;
+    position: absolute;
+    display: none;
+    text-align: center;
+    width: 11rem;
+    margin-top: 4rem;
     backdrop-filter: blur(10px);
+    color: var(--color-Sextenary); 
 }
 
 .iconos1:hover {
@@ -772,11 +916,28 @@ input[type="search"] {
 .calificacion{
     position: absolute;
     margin-top: 0.5rem;
-    margin-left: 2rem;
+    margin-left: 1.6rem;
+}
+
+.estrella1{
+    width: 7rem;
+    border-radius: 1rem;
+    background-color: var(--color-Sextenary);
+    box-shadow: 0 0 5px 1px var(--color-Quinary);
 }
 
 .estrella{
-    background-color: var(--color-Sextary);
+    color: var();
+}
+
+.border{
+    display: inline-block;
+    font-size: 20px;
+    margin-left: -0.8rem;
+    background-color: var(--color-Notification2);
+    color: var(--color-Notification2);
+    border-radius: 8px 0 0 8px;
+    box-shadow: 0 0 3px 1px var(--color-Quinary);
 }
 
 .p{
@@ -785,7 +946,7 @@ input[type="search"] {
     padding: 0.5rem;
     width: 10rem;
     height: 2.2rem;
-    margin-left: -8rem;
+    margin-left: -7.1rem;
     margin-top: 25rem;
     border-radius: 0.5rem;
     border: 1px solid var(--color-Quaternary);
@@ -805,7 +966,7 @@ input[type="search"] {
     position: absolute;
     display: flex;
     justify-content: space-around;
-    left: -0.5rem;
+    left: -0.9rem;
     top: 78rem;
 }
 
@@ -830,10 +991,9 @@ input[type="search"] {
     display: inline-block;
     justify-content: space-between;
     position: relative;
-    width: 118px;
+    width: 117.5px;
     margin-top: 5rem;
-    margin-left: 2.1rem;
-    /* margin: 2rem; */
+    margin-left: 1.5rem;
     text-align: center;
 }
 
@@ -856,46 +1016,67 @@ input[type="search"] {
     cursor: pointer;
 }
 
-/* .pelicula a {
-    padding: 0.3rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--color-Quinary);
-    color: var(--color-Quaternary);
-    background-color: var(--color-Notification);
-}
-
-.pelicula a:hover{
-    background-color: var(--color-Quaternary);
+#carritoIcono i{
+    position: absolute;
+    font-size: 1.5rem;
+    margin-left: 149rem;
     color: var(--color-Primary);
-    transition: all 300ms ease;
-    transform: scale(1.15);
+    cursor: pointer;
 }
 
-.pelicula1 a {
-    padding: 0.3rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--color-Quinary);
-    color: var(--color-Quaternary);
-    background-color: var(--color-Notification);
+#cantidadCarrito{
+    position: absolute; 
+    top: 25px; 
+    right: 3.3rem; 
+    border-radius: 50%; 
+    padding: 5px 9px; 
+    font-size: 12px;
+    color: var(--color-Sextenary); 
+    background-color: var(--color-Notification1);
+    cursor: pointer;
 }
 
-.pelicula1 a:hover{
-    background-color: var(--color-Quaternary);
-    color: var(--color-Primary);
-    transition: all 300ms ease;
-    transform: scale(1.15);
+.detalleCompra {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 
-.pelicula li{
-    padding: 0.5rem;
-    color: var(--color-Quaternary);
+
+
+/**********************************responsive**********************************/
+
+
+
+
+
+@media (max-width: 700px) {
+    
+    
+    
+    .header_contenedor{
+        display: flex;
+        flex-direction: column;
+        width: 10px;
+    }
+
+    .header_contenedor div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+    }
+
+    
+
+
 }
-
-
-.pelicula1 li{
-    padding: 0.5rem;
-    color: var(--color-Quaternary);
-} */
