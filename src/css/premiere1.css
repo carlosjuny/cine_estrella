@@ -294,7 +294,7 @@ html body {
 .calendar_controls select{
     margin-top: 0.5rem;
     padding: 0.2rem;
-    margin-left: 0.5rem;
+    margin-left: 0.8rem;
     border-radius: 0.5rem;
 }
 
@@ -303,7 +303,7 @@ html body {
     width: 9rem;
     height: 1.5rem;
     margin-top: -1.5rem;
-    margin-left: 11.8rem;
+    margin-left: 12.5rem;
     padding-top: 0.2rem;
     border-radius: 1rem;
     background-color: var(--color-Primary);
@@ -314,7 +314,7 @@ html body {
 
 .calendar_table{
     padding: 1rem  1rem 1rem  1rem;
-    margin-left: 2rem;
+    margin-left: 0.5rem;
     text-align: center;
 }
 
