@@ -291,10 +291,14 @@ html body {
 }
 
 
+.calendar_controls #select_year{
+    margin-left: 0.5rem;
+}
+
 .calendar_controls select{
     margin-top: 0.5rem;
     padding: 0.2rem;
-    margin-left: 0.8rem;
+    margin-left: 1rem;
     border-radius: 0.5rem;
 }
 
@@ -314,7 +318,7 @@ html body {
 
 .calendar_table{
     padding: 1rem  1rem 1rem  1rem;
-    margin-left: 0.5rem;
+    margin-left: -1rem;
     text-align: center;
 }
 
